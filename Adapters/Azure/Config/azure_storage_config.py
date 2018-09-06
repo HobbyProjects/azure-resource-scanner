@@ -1,4 +1,4 @@
 class AzureStorageConfig:
-    def __init__(self, accountName, accountKey):
-        self.account_name = accountName
-        self.account_key = accountKey
+    def __init__(self, account_name, account_key):
+        self.account_name = account_name
+        self.account_key = account_key

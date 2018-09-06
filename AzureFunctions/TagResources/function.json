@@ -6,7 +6,7 @@
       "type": "queueTrigger",
       "direction": "in",
       "name": "msg",
-      "queueName": "resource-tagger",
+      "queueName": "resource-payloads",
       "connection": "AzureWebJobsStorage"
     }
   ]

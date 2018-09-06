@@ -1,13 +1,15 @@
 from abc import ABC, abstractmethod
 
+
 class ResourceFilter(ABC):
     @abstractmethod
     def normalized_filter(self):
         raise NotImplementedError("normalized_filter is not implemented")
 
+
 class ResourceService(ABC):
     @abstractmethod
-    def get_resources(self, filter:ResourceFilter=None):
+    def get_resources(self, filter: ResourceFilter=None):
         raise NotImplementedError("get_resources is not implemented")
 
     @abstractmethod

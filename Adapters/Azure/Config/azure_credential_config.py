@@ -1,12 +1,14 @@
-from azure.common.credentials import ServicePrincipalCredentials, BasicTokenAuthentication
+from azure.common.credentials import ServicePrincipalCredentials
+
 
 class AzureCredentialConfig:
-    def __init__(self, clientId, tenant, secret):
-        self.clientId = clientId
+    def __init__(self, client_id, tenant, secret):
+        self.clientId = client_id
         self.secret = secret
         self.tenant = tenant
-    
-    def get_credentials(self):
+
+    @property
+    def credentials(self):
         return ServicePrincipalCredentials(
             self.clientId,
             self.secret,

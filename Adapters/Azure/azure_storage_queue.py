@@ -6,7 +6,7 @@ from .Config import AzureStorageConfig
 
 class AzureStorageQueue(Common.Contracts.Queue):
 
-    def __init__(self, queue_name, config:AzureStorageConfig):
+    def __init__(self, queue_name, config: AzureStorageConfig):
         self._queue_name = queue_name
         self._queue_service = QueueService(account_name=config.account_name, account_key=config.account_key)
 

@@ -1,23 +1,26 @@
 import logging
 
 from Common import ResourceScanner
-from Common.Contracts import Queue
 from Adapters.Simulators import ServiceFactorySimulator
+from Common.Test import TestCase
 
-class LoggingQueue(Queue):
-    def push(self, message):
-        logging.info(message)
+class TestScanner(TestCase):
 
-    def pop(self):
-        raise NotImplementedError("Should have implemented pop")
+    def test_scanner(self):
+        data = {
+            "subscriptionId" : "12345678-0000-0000-0000-123412341234",
+            "typeName" : "storage"
+        }
+        factory = ServiceFactorySimulator()
+        queue = factory.queue("test_queue")
 
-    def peek(self):
-        raise NotImplementedError("Should have implemented peek")
+        ResourceScanner(factory, queue).execute(data)
 
-def test_scanner():
-    data = {
-        "subscriptionId" : "808b8977-950a-4a96-8229-b48d708aa455",
-        "typeName" : "storage"
-    }
-    factory = ServiceFactorySimulator()
-    ResourceScanner(factory, LoggingQueue()).execute(data)
+        try:
+            # Trying to peek an empty queue will throw an exception
+            queue.peek()
+        except:
+            logging.error("Expected queue to have a message")
+            assert(False)
+        
+        # Can't implement more detailed tests until we expand resource service simulator

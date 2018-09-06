@@ -1,10 +1,10 @@
 import logging
-from Common.Helpers import ResourceExtractors
 from Common.Contracts import ServiceFactory
 from .Contracts import Resource
 
+
 class ResourceTagger:
-    def __init__(self, factory:ServiceFactory, tags:dict, overwrite=True):
+    def __init__(self, factory: ServiceFactory, tags:dict, overwrite=True):
         self._factory = factory
         self._tags = tags
         self._overwrite = overwrite
@@ -14,7 +14,6 @@ class ResourceTagger:
         # Default overwrite behavior
         if overwrite is None:
             overwrite = self._overwrite
-
 
         # Tag the resource
         tags_written = 0

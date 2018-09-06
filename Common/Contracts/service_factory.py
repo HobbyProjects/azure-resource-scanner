@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from . import ResourceService
 
+
 class ServiceFactory(ABC):
 
     @abstractmethod

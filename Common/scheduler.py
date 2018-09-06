@@ -1,6 +1,7 @@
 import json
 import logging
 
+
 def create_tasks(config):
 
     tasks = []
@@ -29,6 +30,7 @@ def create_tasks(config):
 
     return tasks
 
+
 def read_config_from_blob(blob_service):
 
     # get a list of files in the blob container
@@ -51,3 +53,10 @@ def read_config_from_blob(blob_service):
         logging.error("Empty JSON returned!")
         return None
     return json.loads(json_data)
+
+
+def push_tasks_to_queue(task_queue, tasks):
+
+    for task in tasks:
+        logging.info(f"Pushing task {task} to task queue")
+        task_queue.push(task)

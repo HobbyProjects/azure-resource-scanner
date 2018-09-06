@@ -5,17 +5,17 @@ from Adapters.Azure import AzureResource
 class ResourceServiceSimulator(ResourceService):
 
     resources = [{
-                'id': '/subscriptions/808b8977-950a-4a96-8229-b48d708aa455/resourceGroups/ericmai-vsts-devcrews-teams/providers/microsoft.insights/components/devcrewengnot',
-                'name': 'devcrewengnot',
+                'id': '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyyyyyyyyy/providers/microsoft.insights/components/wwwwwwwwwwww',
+                'name': 'wwwwwwwwwwww',
                 'type': 'microsoft.insights/components',
                 'location': 'southcentralus',
                 'tags': {
-                    'hidden-link:/subscriptions/808b8977-950a-4a96-8229-b48d708aa455/resourceGroups/ericmai-vsts-devcrews-teams/providers/Microsoft.Web/sites/devcrewengnot': 'Resource'
+                    'hidden-link:/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyyyyyyyyy/providers/Microsoft.Web/sites/wwwwwwwwwwww': 'Resource'
                 },
                 'kind': 'web'
                 }, {
-                'id': '/subscriptions/808b8977-950a-4a96-8229-b48d708aa455/resourceGroups/ericmai-vsts-devcrews-teams/providers/Microsoft.ServiceBus/namespaces/csedevcrew',
-                'name': 'csedevcrew',
+                'id': '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyyyyyyyyy/providers/Microsoft.ServiceBus/namespaces/wwwwwwwwwwww',
+                'name': 'wwwwwwwwwwww',
                 'type': 'Microsoft.ServiceBus/namespaces',
                 'location': 'southcentralus',
                 'tags': {},
@@ -24,8 +24,8 @@ class ResourceServiceSimulator(ResourceService):
                     'tier': 'Standard'
                 }
                 }, {
-                'id': '/subscriptions/808b8977-950a-4a96-8229-b48d708aa455/resourceGroups/ericmai-vsts-devcrews-teams/providers/Microsoft.Storage/storageAccounts/devcrewengnotab6f',
-                'name': 'devcrewengnotab6f',
+                'id': '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyyyyyyyyy/providers/Microsoft.Storage/storageAccounts/wwwwwwwwwwww',
+                'name': 'wwwwwwwwwwww',
                 'type': 'Microsoft.Storage/storageAccounts',
                 'location': 'southcentralus',
                 'tags': {},
@@ -35,14 +35,14 @@ class ResourceServiceSimulator(ResourceService):
                     'tier': 'Standard'
                 }
                 }, {
-                'id': '/subscriptions/808b8977-950a-4a96-8229-b48d708aa455/resourceGroups/ericmai-vsts-devcrews-teams/providers/Microsoft.Web/serverFarms/SouthCentralUSPlan',
-                'name': 'SouthCentralUSPlan',
+                'id': '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyyyyyyyyy/providers/Microsoft.Web/serverFarms/wwwwwwwwwwww',
+                'name': 'wwwwwwwwwwww',
                 'type': 'Microsoft.Web/serverFarms',
                 'location': 'southcentralus',
                 'kind': 'functionapp'
                 }, {
-                'id': '/subscriptions/808b8977-950a-4a96-8229-b48d708aa455/resourceGroups/ericmai-vsts-devcrews-teams/providers/Microsoft.Web/sites/devcrewengnot',
-                'name': 'devcrewengnot',
+                'id': '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyyyyyyyyy/providers/Microsoft.Web/sites/wwwwwwwwwwww',
+                'name': 'wwwwwwwwwwww',
                 'type': 'Microsoft.Web/sites',
                 'location': 'southcentralus',
                 'kind': 'functionapp'
@@ -51,10 +51,8 @@ class ResourceServiceSimulator(ResourceService):
     def get_resources(self, filter: ResourceFilter=None):
         return [AzureResource(resource) for resource in self.resources]
 
-
     def update_resource(self, resource):
         return None
 
     def get_filter(self, payload) -> ResourceFilter:
         pass
-

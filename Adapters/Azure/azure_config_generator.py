@@ -11,7 +11,7 @@ class AzureConfigGenerator(ConfigGenerator):
 
     def generate_config(self, types: list):
         subs = []
-        for sub in self._subscription_service.get_accounts():
+        for sub in self._subscription_service.accounts:
             subs.append({
                 'subscriptionId': sub['subscriptionId'],
                 'displayName': sub['displayName']

@@ -3,6 +3,9 @@ Workflow for discovering and documenting Azure Resources across multiple subscri
 
 Logic is written in Python and is executed by Azure Functions.
 
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fericmaino%2Fazure-resource-scanner%2Fmaster%2FDeployment%2Fdeploy.azure.json)
+[![Visualize](http://armviz.io/visualizebutton.png)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fericmaino%2Fazure-resource-scanner%2Fmaster%2FDeployment%2Fdeploy.azure.json)
+
 #### Setup Azure for Deployment
 
 Using the Azure CLI, either from inside the Azure Portal using Cloud Shell, or locally. [Download Local CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -101,3 +104,6 @@ az functionapp config appsettings set --name <function_app> --resource-group my-
 
 ##### 8. Verify Function Configuration
 The function app should now be configured properly. You can verify the functions are loaded correctly by finding them in the Azure Portal and opening the function app resource. In order for the flow to begin, there must be a configuration file, which is explained below.
+
+##### 9. Generate Configuration File
+In order for the Resource Scanner to run, a configuration file must be generated. This configuration file is stored in an Azure Blob Storage container, and then picked up by the task scheduling function to kick off the process. This process is run locally. Follow [these steps](/GenerateConfig.md) to generate the file, at which point you should be good to start scanning :)

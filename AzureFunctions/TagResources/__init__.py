@@ -1,9 +1,10 @@
 import logging
 
-from Adapters.Azure import AzureConfig, AzureServiceFactory
+from Adapters.Azure import AzureConfig, AzureServiceFactory, AzureResource
 from Common import ResourceTagger, Config
 
 from azure.functions import QueueMessage
+
 
 def parse_message(msg):
         logging.info(f"Processing queue message {msg.id}")
@@ -15,12 +16,17 @@ def parse_message(msg):
 
         logging.info(f"Found {len(resource_list)} resources to process")
 
+        resource_list = [AzureResource(resource) for resource in resource_list]
+
         return resource_list
 
-def main(msg : QueueMessage):
+
+def main(msg: QueueMessage):
     config = Config()
     azure_config = AzureConfig(config)
     factory = AzureServiceFactory(azure_config)
+    table_storage = factory.table_storage()
+
     resource_tags = {
         'tag1': 'value'
     }
@@ -30,3 +36,4 @@ def main(msg : QueueMessage):
 
     for resource in resources:
         resource_tagger.execute(resource)
+        table_storage.write_entries(resource.to_dict())

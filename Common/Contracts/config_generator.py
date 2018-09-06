@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from Common.Contracts import StorageContainer
 
+
 class ConfigGenerator(ABC):
 
     @abstractmethod

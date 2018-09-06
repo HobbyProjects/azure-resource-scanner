@@ -1,11 +1,12 @@
 import re
 
+
 class ResourceExtractors:
 
     provider_extractor = re.compile(r"(?!(?:\/[^\/]+\/[^\/]+)+\/providers)\/providers\/([^\/]+)((:?\/[^\/]+\/[^\/]+)*)$", re.IGNORECASE)
     type_extractor = re.compile(r"\/([^\/]+)\/([^\/]+)", re.IGNORECASE)
     rg_sub_extractor = re.compile(r"\/subscriptions\/([^\/\s]+)(?:\/resourceGroups\/([^\/\s]+))?", re.IGNORECASE)
-    
+
     @classmethod
     def get_subscription(cls, resource_id):
         matches = cls.rg_sub_extractor.search(resource_id)
@@ -13,7 +14,7 @@ class ResourceExtractors:
             return None
 
         return matches.group(1)
-    
+
     @classmethod
     def get_resource_group(cls, resource_id):
         matches = cls.rg_sub_extractor.search(resource_id)

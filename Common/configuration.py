@@ -1,6 +1,7 @@
 import os
 import logging
 
+
 def get_enviroment_value(key):
     try:
         value = os.environ[key]
@@ -8,6 +9,7 @@ def get_enviroment_value(key):
         logging.error("Following key is not set: %s", str(key))
         value = None
     return value
+
 
 class Config:
     def get_property(self, property_name):

@@ -7,9 +7,7 @@ from Common import Config
 @click.command()
 @click.option('-t', '--types', type=click.STRING, required=True,
               help="Resource types for which to scan in Azure subscriptions, separated by comma")
-@click.option('-f', '--output', type=click.File('w'),
-              help="File to store the generated config (default stdout)")
-def generate_config_cli(types, output):
+def generate_config_cli(types):
     type_list = types.split(',')
     azure_config = AzureConfig(Config())
     azure_factory = AzureServiceFactory(azure_config)

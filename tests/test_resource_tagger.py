@@ -1,11 +1,7 @@
-import json
-import logging
-
-from Adapters.Azure import AzureConfig, AzureServiceFactory, AzureResourceService
 from Adapters.Simulators import ServiceFactorySimulator
 from Common import ResourceTagger
-from Common.Contracts import ResourceService
 from Common.Test import TestCase
+
 
 class ResourceScannerTest(TestCase):
 
@@ -28,7 +24,6 @@ class ResourceScannerTest(TestCase):
 
         assert(tags_written == 2)
         assert(tags_skipped == 0)
-
 
     def test_scanner_overwrite(self):
         test_tag_name = 'testTag1'

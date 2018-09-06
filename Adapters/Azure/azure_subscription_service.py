@@ -5,8 +5,9 @@ from .Config import AzureCredentialConfig
 
 class AzureSubscriptionService(AccountService):
 
-    def __init__(self, config:AzureCredentialConfig):
-        self._client = SubscriptionClient(config.get_credentials())
+    def __init__(self, config: AzureCredentialConfig):
+        self._client = SubscriptionClient(config.credentials)
 
-    def get_accounts(self):
+    @property
+    def accounts(self):
         return [sub.serialize(True) for sub in self._client.subscriptions.list()]

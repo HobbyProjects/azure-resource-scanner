@@ -6,7 +6,7 @@ from .Config import AzureStorageConfig
 
 class AzureStorageContainer(Common.Contracts.StorageContainer):
 
-    def __init__(self, container_name, config:AzureStorageConfig):
+    def __init__(self, container_name, config: AzureStorageConfig):
         self._container_name = container_name
         self._blob_service = BlockBlobService(
             account_name=config.account_name,
